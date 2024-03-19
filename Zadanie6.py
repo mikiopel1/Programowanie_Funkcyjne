@@ -1,24 +1,14 @@
-# Zadanie6
+def safe_function(func):
+    def wrapper(*args, **kwargs):
+        try:
+            return func(*args, **kwargs)
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            return None
+    return wrapper
 
-class Task6:
-    @staticmethod
-    def run():
-        # Lista słów
-        words = ['apple', 'banana', 'avocado', 'orange', 'grape', 'apricot']
+@safe_function
+def divide(a, b):
+    return a / b
 
-        # Funkcja, która filtruje słowa zaczynające się na literę 'a'
-        filtered_words = list(filter(lambda word: word.startswith('a'), words))
-
-        # Lista liczb
-        numbers = [1, 2, 3, 4, 5]
-
-        # Funkcja, która oblicza kwadraty liczb
-        squared_numbers = list(map(lambda x: x ** 2, numbers))
-
-        print("#Zadanie6")
-        print("Słowa zaczynające się na literę 'a':", filtered_words)
-        print("Kwadraty liczb:", squared_numbers)
-
-if __name__ == "__main__":
-    task6 = Task6()
-    task6.run()
+print(divide(10, 0))
