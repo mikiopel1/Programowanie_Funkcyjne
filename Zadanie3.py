@@ -1,16 +1,12 @@
-#Zadanie3
-global_variable = 10  # Zmienna globalna
+def recursive_sum(numbers):
+    total = 0
+    for num in numbers:
+        if isinstance(num, list):
+            total += recursive_sum(num)
+        else:
+            total += num
+    return total
 
-def function_with_global_and_local_variables(local_variable):
-    # Używamy słowa kluczowego 'global', aby poinformować Pythona, że mamy na myśli zmienną globalną
-    global global_variable
-    print("Wartość zmiennej globalnej:", global_variable)
-    print("Wartość zmiennej lokalnej:", local_variable)
-
-    # Modyfikacja zmiennej globalnej
-    global_variable = 20
-    print("Nowa wartość zmiennej globalnej:", global_variable)
-
-if __name__ == "__main__":
-    print("#Zadanie3")
-    function_with_global_and_local_variables(5)
+# Przykład użycia:
+nested_numbers = [1, [2, 3], [4, [5, 6]]]
+print(recursive_sum(nested_numbers))
