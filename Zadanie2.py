@@ -1,16 +1,8 @@
-#Zadanie2
-from functions import Function
+def filter_long_words(words):
+    avg_length = sum(len(word) for word in words) / len(words)
+    return [word for word in words if len(word) > avg_length]
 
-
-class Main:
-    def __init__(self):
-        pass
-
-    def display_result(self):
-        result = Function.simple_function(3)  # Wywołanie funkcji simple_function z klasy Function
-        print("Wynik funkcji:", result)
-
-if __name__ == "__main__":
-    print("#Zadanie2")
-    main_obj = Main()
-    main_obj.display_result()
+# Przykład użycia:
+word_list = ["apple", "banana", "orange", "kiwi", "strawberry"]
+filtered_words = filter_long_words(word_list)
+print(filtered_words)
